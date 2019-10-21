@@ -1,11 +1,13 @@
 package org.fasttrackit.todolist;
 
+import org.fasttrackit.todolist.domain.ToDoItem;
 import org.fasttrackit.todolist.persistance.ToDoItemRepository;
 import org.fasttrackit.todolist.transfer.CreateToDoItemRequest;
 
 import java.io.IOException;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.List;
 
 /**
  * Hello world!
@@ -19,6 +21,12 @@ public class App
         request.setDeadline(LocalDate.now().plusWeeks(1));
 
         ToDoItemRepository toDoItemRepository=new ToDoItemRepository();
-        toDoItemRepository.createToDoItem(request);
+      //  toDoItemRepository.createToDoItem(request);
+     //   toDoItemRepository.updateToDOItem(1,true);
+
+     //   toDoItemRepository.deleteToDOItem(1);
+        List<ToDoItem> toDoItems = toDoItemRepository.getToDoItems();
+
+        System.out.println(toDoItems);
     }
 }
